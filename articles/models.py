@@ -15,17 +15,25 @@ class Articles(models.Model):
         auto_now=False, auto_now_add=False, default=timezone.now)
 
     def save(self, *args, **kwargs):
-        if self.slug is None:
-            self.slug = slugify(self.title)
+        # if self.slug is None:
+        #     self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+
+def slugify_instance_title(instance, save=False):
+    slug = slugify(instance.title)
+    instance.slug = slug
+
+    if save:
+        instance.save
 
 
 def article_pre_save(sender, instance, *args, **kwargs):
     print("pre_save")
 
     if instance.slug is None:
-
-        instance.slug = slugify(instance.title)
+        slug = slugify(instance.title)
+        instance.slug = slug
 
     # print(sender,instance,args, kwargs)
 
@@ -37,7 +45,8 @@ def article_post_save(sender, instance, created, *args, **kwargs):
     print("post_save")
 
     if created:
-        isinstance.slug = slugify(instance.title)
+        slug = slugify(instance.title)
+        isinstance.slug = slug
         isinstance.save()
 
 
