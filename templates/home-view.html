@@ -3,16 +3,22 @@
 
 
 
-{% block content  %}
+{% block content %}
 
 <h1>{{title}} (id:{{id}})</h1>
 <p>{{content}}</p>
-
+<a href='{% url "article-create"%}'> create article</a>
 <ul>
     {%for x in object_list %}
-        {%if x.title %}
-            <li><a href='/articles/{{ x.id }}/' > {{x.title}} - {{x.content}} </a></li>
-        {% endif %}
+    {%if x.title %}
+    <li><a href='/articles/{{ x.slug }}/'> {{x.title}} - {{x.content}} old</a></li>
+
+    <li><a href='{{ x.get_absolute_url }}'> {{x.title}} - {{x.content}} dont work !</a></li>
+
+    <li><a href='{% url "article-create"%}'> {{x.title}} - {{x.content}} test create </a></li>
+
+    <li><a href='{% url "article-detail" slug=x.slug %}'> {{x.title}} - {{x.content}} test slug</a></li>
+    {% endif %}
     {% endfor %}
 
 </ul>
