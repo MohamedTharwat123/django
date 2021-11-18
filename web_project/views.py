@@ -16,7 +16,7 @@ def home_view(request, id=None):
     return html as response(we pick to return the response)
     """
     name = "mohamed"
-    num = random.randint(1, 2)
+    num = random.randint(1, 40)
     # print(kwarags, args)
     # get data from db
     art_obj = Articles.objects.get(id=num)

@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-    </head>
+<head>
+    <script src="https://unpkg.com/htmx.org@1.6.0"></script>
+    <style>
+        .htmx-request {
+            display: none;
+        }
+
+        .htmx-indicator {
+            display: inline;
+        }
+
+        .htmx-inverted-indicator {
+            display: inline;
+        }
+
+        .htmx-request .htmx-inverted-indicator {
+            display: none;
+        }
+    </style>
+</head>
 
 
-    <body>
-        <h1>Hello World</hi>
+<body>
+    <h1>Hello World</hi>
 
-        <form action = "/articles/" method="GET">
-        
-        <input type="text" name="q"/>
+        <form action="/articles/" method="GET">
 
-        <input type="submit" />
+            <input type="text" name="q" />
+
+            <input type="submit" />
 
         </form>
 
 
         {%block content%}
         {%endblock content%}
-    </body>
+</body>
+
 </html>

@@ -1,0 +1,345 @@
+[
+{
+    "model": "recipes.recipe",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "name": "Grilled chicken taco",
+        "description": "here is my Description",
+        "directions": "here is my Directions",
+        "timestamp": "2021-11-15T13:27:01.747Z",
+        "updated": "2021-11-17T14:48:24.567Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "name": "onion",
+        "description": "this is soup",
+        "directions": "this is soup",
+        "timestamp": "2021-11-16T15:14:58.022Z",
+        "updated": "2021-11-17T09:46:25.212Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipe",
+    "pk": 4,
+    "fields": {
+        "user": 1,
+        "name": "chicken htmx",
+        "description": "",
+        "directions": "",
+        "timestamp": "2021-11-17T15:07:55.091Z",
+        "updated": "2021-11-17T15:22:43.156Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 1,
+    "fields": {
+        "recipe": 1,
+        "name": "Grilled Chicken",
+        "description": "",
+        "quanity": "1.5",
+        "quantity_as_flaot": 1.5,
+        "unit": "pound",
+        "directions": "",
+        "timestamp": "2021-11-15T13:43:47.843Z",
+        "updated": "2021-11-17T14:48:24.605Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 2,
+    "fields": {
+        "recipe": 1,
+        "name": "taco",
+        "description": "",
+        "quanity": "32",
+        "quantity_as_flaot": 32.0,
+        "unit": "pound",
+        "directions": "",
+        "timestamp": "2021-11-16T11:58:41.677Z",
+        "updated": "2021-11-17T14:48:24.651Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 3,
+    "fields": {
+        "recipe": 1,
+        "name": "onion",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T13:34:48.714Z",
+        "updated": "2021-11-17T13:34:48.714Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 4,
+    "fields": {
+        "recipe": 1,
+        "name": "onion",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T13:35:38.830Z",
+        "updated": "2021-11-17T13:35:38.830Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 5,
+    "fields": {
+        "recipe": 1,
+        "name": "asd",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T13:35:38.869Z",
+        "updated": "2021-11-17T13:35:38.869Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 6,
+    "fields": {
+        "recipe": 1,
+        "name": "",
+        "description": null,
+        "quanity": "",
+        "quantity_as_flaot": 0.0,
+        "unit": "",
+        "directions": null,
+        "timestamp": "2021-11-17T13:35:38.908Z",
+        "updated": "2021-11-17T13:35:38.908Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 7,
+    "fields": {
+        "recipe": 1,
+        "name": "onion",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T13:36:18.716Z",
+        "updated": "2021-11-17T13:36:18.716Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 8,
+    "fields": {
+        "recipe": 1,
+        "name": "asd",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T13:36:18.765Z",
+        "updated": "2021-11-17T13:36:18.765Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 9,
+    "fields": {
+        "recipe": 1,
+        "name": "",
+        "description": null,
+        "quanity": "",
+        "quantity_as_flaot": 0.0,
+        "unit": "",
+        "directions": null,
+        "timestamp": "2021-11-17T13:36:18.871Z",
+        "updated": "2021-11-17T13:36:18.871Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 10,
+    "fields": {
+        "recipe": 1,
+        "name": "onion",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:02:27.311Z",
+        "updated": "2021-11-17T14:02:27.311Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 11,
+    "fields": {
+        "recipe": 1,
+        "name": "asd",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:02:27.357Z",
+        "updated": "2021-11-17T14:02:27.357Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 12,
+    "fields": {
+        "recipe": 1,
+        "name": "",
+        "description": null,
+        "quanity": "",
+        "quantity_as_flaot": 0.0,
+        "unit": "",
+        "directions": null,
+        "timestamp": "2021-11-17T14:02:27.402Z",
+        "updated": "2021-11-17T14:02:27.402Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 13,
+    "fields": {
+        "recipe": 1,
+        "name": "onion",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:02:38.106Z",
+        "updated": "2021-11-17T14:02:38.107Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 14,
+    "fields": {
+        "recipe": 1,
+        "name": "asd",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:02:38.153Z",
+        "updated": "2021-11-17T14:02:38.153Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 15,
+    "fields": {
+        "recipe": 1,
+        "name": "test",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:02:38.199Z",
+        "updated": "2021-11-17T14:02:38.199Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 16,
+    "fields": {
+        "recipe": 1,
+        "name": "onion",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:48:24.699Z",
+        "updated": "2021-11-17T14:48:24.699Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 17,
+    "fields": {
+        "recipe": 1,
+        "name": "asd",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:48:24.745Z",
+        "updated": "2021-11-17T14:48:24.745Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 18,
+    "fields": {
+        "recipe": 1,
+        "name": "test",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T14:48:24.790Z",
+        "updated": "2021-11-17T14:48:24.790Z",
+        "active": true
+    }
+},
+{
+    "model": "recipes.recipeingredient",
+    "pk": 28,
+    "fields": {
+        "recipe": 4,
+        "name": "asd",
+        "description": null,
+        "quanity": "1",
+        "quantity_as_flaot": 1.0,
+        "unit": "gram",
+        "directions": null,
+        "timestamp": "2021-11-17T15:22:43.223Z",
+        "updated": "2021-11-17T15:22:43.223Z",
+        "active": true
+    }
+}
+]
