@@ -1,25 +1,29 @@
-<form action="." method="POST" hx-post='.' hx-swap='outerHTML'>
+<div id="recipe-container">
 
-    {% csrf_token %}
-    {% for field in form %}
-    <div class="{%if field.field.required%}{{form.required_css_class}}{% endif %}">
-        {{ field.errors }}
-        {{ field.label_tag}}{{field}}
-        {% if field.help_text %}
-        <p class="help">{{field.help_text | safe}}</p>
+
+    <form action="." method="POST" hx-post='.' hx-swap='outerHTML' hx-trigger="change delay:500ms ,submit">
+
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="{%if field.field.required%}{{form.required_css_class}}{% endif %}">
+            {{ field.errors }}
+            {{ field.label_tag}}{{field}}
+            {% if field.help_text %}
+            <p class="help">{{field.help_text | safe}}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+
+
+        <div class='htmx-indicator'>Loading ...</div>
+
+        <div style="margin-top:10px;">
+
+            <button class="htmx-inverted-indicator" style="margin-top:10px;" type="submit"> Save </button>
+        </div>
+        {% if message %}
+        <p>{{ message }}</p>
         {% endif %}
-    </div>
-    {% endfor %}
-
-
-
-    <div class='htmx-indicator'>Loading ...</div>
-
-    <div style="margin-top:10px;">
-
-        <button class="htmx-inverted-indicator" style="margin-top:10px;" type="submit"> Save </button>
-    </div>
-    {% if message %}
-    <p>{{ message }}</p>
-    {% endif %}
-</form>
+    </form>
+</div>
