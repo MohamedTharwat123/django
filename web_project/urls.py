@@ -28,7 +28,7 @@ from articles.views import (
 urlpatterns = [
     path("", home_view),  # index/home/root
     path("pantry/recipes/", include("recipes.urls")),
-    path("articles", include("articles.urls")),
+    path("articles/", include("articles.urls")),
     path("login/", login_view),
     # path("articles/", article_search_view),
     # # path("articles/create/", article_create_view),
