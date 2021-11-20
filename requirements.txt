@@ -1,6 +1,7 @@
-django>=3.2,3.3
+django
 gunicorn
 psycopg2-binary
 django-dotenv
+dotenv
 django-htmx
 pint
