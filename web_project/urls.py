@@ -18,17 +18,15 @@ from django.urls import path, include
 
 from .views import home_view
 from accounts.views import (login_view, logout_view, register_view)
-from articles.views import (
-    article_search_view,
-    article_create_view,
-    article_detail_view
-)
 
+
+from search.views import search_view
 
 urlpatterns = [
     path("", home_view),  # index/home/root
     path("pantry/recipes/", include("recipes.urls")),
     path("articles/", include("articles.urls")),
+    path("search/",search_view,name='search'),
     path("login/", login_view),
     # path("articles/", article_search_view),
     # # path("articles/create/", article_create_view),

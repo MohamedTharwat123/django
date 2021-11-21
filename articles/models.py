@@ -47,15 +47,21 @@ class Articles(models.Model):
 
     objects = ArticleManger()
 
-    def save(self, *args, **kwargs):
-        # if self.slug is None:
-        #     self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
+    @property
+    def name(self):
+        return self.title
 
     def get_absolute_url(self):
         # return f'/articles/{self.slug}/'
 
         return reverse('articles:detail',  kwargs={'slug': self.slug})
+
+
+    def save(self, *args, **kwargs):
+        # if self.slug is None:
+        #     self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
 
 
 # def slugify_instance_title(instance, save=False, new_slug=None):

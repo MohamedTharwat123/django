@@ -5,7 +5,32 @@ from pint import measurement
 from django.urls import reverse
 from .validators import validate_unit_of_measure
 from .utils import number_str_to_float
+from django.db.models import Q
 # Create your models here.
+
+
+user = settings.AUTH_USER_MODEL
+
+
+class RecipeQuerySet(models.QuerySet):
+    def search(self, query=None):
+        if query is None or query == "":
+            return self.none()
+        lookups = (Q(name__icontains=query) |
+        Q(description__icontains=query) |
+        Q(directions__icontains=query)
+        )
+        return self.filter(lookups)
+
+
+# new
+class RecipeManger(models.Manager):
+    def get_queryset(self):
+        return RecipeQuerySet(self.model, using=self._db)
+
+    def search(self, query=None):
+
+        return self.get_queryset().search(query=query)
 
 
 class Recipe(models.Model):
@@ -18,6 +43,12 @@ class Recipe(models.Model):
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
 
+    objects=RecipeManger()
+
+    @property
+    def title(self):
+        return self.name
+
     def get_absolute_url(self):
         return reverse("recipes:detail", kwargs={"id": self.id})
 
@@ -26,6 +57,9 @@ class Recipe(models.Model):
 
     def get_edit_url(self):
         return reverse("recipes:update", kwargs={"id": self.id})
+
+    def get_delete_url(self):
+        return reverse("recipes:delete", kwargs={"id": self.id})
 
     def get_ingredient_children(self):
         return self.recipeingredient_set.all()

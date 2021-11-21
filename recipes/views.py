@@ -14,7 +14,7 @@ from django.urls import reverse
 @login_required
 def recipe_list_view(request):
     qs = Recipe.objects.filter(user=request.user)
-    print(qs)
+    # print(qs)
     context = {
         "object_list": qs
     }
@@ -28,6 +28,33 @@ def recipe_detail_view(request, id=None):
         "hx_url": hx_url
     }
     return render(request, "recipes/detail.html", context)
+
+
+@login_required
+def recipe_delete_view(request, id=None):
+    obj=get_object_or_404(Recipe, id=id, user=request.user)
+    if request.method=='POST':
+        obj.delete()
+        success_url=reverse('recipes:list')
+        return redirect(success_url)
+
+    context = {
+        "object": obj
+    }
+    return render(request, "recipes/delete.html", context)
+
+@login_required
+def recipe_ingredient_delete_view(request, id=None):
+    obj=get_object_or_404(Recipe, id=id, user=request.user)
+    if request.method=='POST':
+        obj.delete()
+        success_url=reverse('recipes:list')
+        return redirect(success_url)
+
+    context = {
+        "object": obj
+    }
+    return render(request, "recipes/delete.html", context)
 
 
 @login_required
