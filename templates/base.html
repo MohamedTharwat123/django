@@ -26,15 +26,9 @@
 
 <body>
     <h1>Hello World</hi>
-
-        <form action="/articles/" method="GET">
-
-            <input type="text" name="q" />
-
-            <input type="submit" />
-
-        </form>
-
+    
+        {% include 'search/search-form.html' %}
+        
 
         {%block content%}
         {%endblock content%}

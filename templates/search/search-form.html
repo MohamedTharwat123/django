@@ -1,0 +1,36 @@
+<div>
+<form action="/search/" method="GET">
+
+            <input type="text" id='search-query' name="q" value='{{ request.GET.q }}' hx-get='/search/' hx-trigger='keyup changed delay:500ms ' hx-include='#search-type' hx-target='#typeahed-results' />
+                <select name='type' id="search-type"  hx-get='/search/' hx-trigger='keyup changed delay:500ms ' hx-include='#search-query' hx-target='#typeahed-results' /> 
+                    
+                    {% if request.GET.type == 'article'  %}
+
+                        <option value='article' selected>Articles</option>
+
+                    {% else %}
+
+                        <option value='article'>article</option>
+
+
+                    {% endif %}
+                    
+                    {% if request.GET.type == 'recipes'  %}
+
+                        <option value='recipes' selected>Recipes</option>
+
+                    {% else %}
+
+                        <option value='recipes'>Recipes</option>
+
+                    {% endif %}
+
+
+                </select>
+
+            <input type="submit" />
+
+        </form>
+        <div id='typeahed-results'>
+        </div>
+</div> 

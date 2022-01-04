@@ -22,8 +22,17 @@ from django.utils.decorators import method_decorator
 @login_required
 def recipe_list_view(request):
     qs = Recipe.objects.filter(user=request.user)
+<<<<<<< HEAD
 
-    context = {"object_list": qs}
+    context = {
+        "object_list": qs
+               }
+=======
+    
+    context = {
+        "object_list": qs
+    }
+>>>>>>> b0bbb36fcae6116b6342c8dc43366aa93e54d018
     return render(request, "recipes/list.html", context)
 
 
@@ -40,6 +49,33 @@ def recipe_detail_view(request, id=None):
     hx_url = reverse("recipes:hx-detail", kwargs={"id": id})
     context = {"hx_url": hx_url}
     return render(request, "recipes/detail.html", context)
+
+
+@login_required
+def recipe_delete_view(request, id=None):
+    obj=get_object_or_404(Recipe, id=id, user=request.user)
+    if request.method=='POST':
+        obj.delete()
+        success_url=reverse('recipes:list')
+        return redirect(success_url)
+
+    context = {
+        "object": obj
+    }
+    return render(request, "recipes/delete.html", context)
+
+@login_required
+def recipe_ingredient_delete_view(request, id=None):
+    obj=get_object_or_404(Recipe, id=id, user=request.user)
+    if request.method=='POST':
+        obj.delete()
+        success_url=reverse('recipes:list')
+        return redirect(success_url)
+
+    context = {
+        "object": obj
+    }
+    return render(request, "recipes/delete.html", context)
 
 
 @login_required
@@ -66,6 +102,13 @@ def recipe_create_view(request, id=None):
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
+        if request.htmx:
+            headers={
+                "HX-Redirect":obj.get_absolute_url()
+            }
+            return HttpResponse("Created",headers=headers)
+            # context={"object":obj}
+            # return render(request, "recipes/partials/detail.html", context)
         return redirect(obj.get_absolute_url())
     return render(request, "recipes/create-update.html", context)
 

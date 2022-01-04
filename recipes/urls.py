@@ -5,6 +5,7 @@ from django.urls import path
 from .views import (
     recipe_list_view,
     recipe_detail_view,
+    recipe_delete_view,
     recipe_create_view,
     recipe_list_view_class,
     recipe_update_view,
@@ -31,6 +32,7 @@ urlpatterns = [
         name="hx-ingredient-create",
     ),
     path("hx/<int:id>/", recipe_detail_hx_view, name="hx-detail"),
+    path("<int:id>/delete/", recipe_delete_view, name="delete"),
     path("<int:id>/edit/", recipe_update_view, name="update"),
     path("<int:id>/", recipe_detail_view, name="detail"),
     path("list1/", recipe_list_view_class.as_view(), name="list1"),
