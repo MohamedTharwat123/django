@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Site Metas -->
+  <title>HostCloud - Responsive HTML5 Template</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Site Icons -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+  <!-- Site CSS -->
+  <link rel="stylesheet" href='{% static "style_s.css" %}'>
+  <!-- Colors CSS -->
+  <link rel="stylesheet" href='{% static "css\colors.css" %}'>
+
+  <!-- ALL VERSION CSS -->
+  <link rel="stylesheet" href='{% static "css\versions.css" %}'>
+
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href='{% static "css\responsive.css" %}'>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href='{% static "css\custom.css" %}'>
+
+  <!-- Modernizer for Portfolio -->
+  <script src='{% static "js\modernizer.js" %}'></script>
+
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="host_version">
+
+
+
+
+
+
+
+
+  <div id="hosting" class="section ">
+    <div class="container">
+      <!-- Start Box-->
+
+
+
+      {% for product in object_list %}
+
+
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="div_product" data-name="154">
+          <div class="product_img">
+            <div class="discount_badge">
+              <h1>-{{product.discount}}<span class="text smallest">%</span> </h1>
+            </div>
+            <img src="{{ MEDIA_URL }}{{product.image}}" />
+          </div>
+          <div class="image_overlay"></div>
+          <div class="view_details">View details</div>
+          <div class="product_name">
+            <h3>{{product.title}}</h3>
+          </div>
+
+          <div class="div_price">
+            <h6 class="price1">{{product.price}} EGP</h6>
+            <h6 class="price2">{{product.auto_cal}} EGP</h6>
+          </div>
+          <button class="btn_add">ADD TO CART</button>
+        </div>
+
+      </div>
+      {% endfor %}
+      <!-- End Box-->
+
+      {% comment %}
+
+
+
+      <!-- Start Box-->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+
+        <div class="div_product" data-name="0112">
+          <div class="product_img">
+            <div class="discount_badge">
+              <h1>-18<span class="text smallest">%</span> </h1>
+            </div>
+            <img src="images/IMG-20210730-WA0004.jpg">
+          </div>
+          <div class="image_overlay"></div>
+          <div class="view_details">View details</div>
+          <div class="product_name">
+            <h3>Earphone</h3>
+          </div>
+
+          <div class="div_price">
+            <h6 class="price1">40.00 EGP</h6>
+            <h6 class="price2">35.00 EGP</h6>
+          </div>
+          <button class="btn_add">ADD TO CART</button>
+        </div>
+
+      </div>
+      <!-- end Box-->
+      <!-- Start Box-->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="div_product" data-name="254">
+          <div class="product_img">
+            <div class="discount_badge">
+              <h1>-60<span class="text smallest">%</span> </h1>
+            </div>
+            <img src="images/IMG-20210730-WA0003.jpg">
+          </div>
+          <div class="image_overlay"></div>
+          <div class="view_details">View details</div>
+          <div class="product_name">
+            <h3>Earphone</h3>
+          </div>
+
+          <div class="div_price">
+            <h6 class="price1">80.00 EGP</h6>
+            <h6 class="price2">35.00 EGP</h6>
+          </div>
+          <button class="btn_add">ADD TO CART</button>
+        </div>
+
+      </div>
+      <!-- end Box-->
+      <!-- Start Box-->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="div_product" data-name="785">
+          <div class="product_img">
+            <div class="discount_badge">
+              <h1>-75<span class="text smallest">%</span> </h1>
+            </div>
+            <img src="images/IMG-20210730-WA0002.jpg">
+          </div>
+          <div class="image_overlay"></div>
+          <div class="view_details">View details</div>
+          <div class="product_name">
+            <h3>Earphone</h3>
+          </div>
+
+          <div class="div_price">
+            <h6 class="price1">100.00 EGP</h6>
+            <h6 class="price2">40.00 EGP</h6>
+          </div>
+          <button class="btn_add">ADD TO CART</button>
+        </div>
+
+      </div>
+      <!-- end Box-->
+
+      {% endcomment %}
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+  <!-- end  -->
+  <!-- end footer -->
+
+
+
+  <a href="#" id="scroll-to-top" class="up global-radius"><i class="fa fa-angle-up"></i></a>
+
+  <!-- ALL JS FILES -->
+  <script src="js/all.js"></script>
+  <!-- ALL PLUGINS -->
+  <script src="js/custom.js"></script>
+  <script src="js/Default_shopz_001.js"></script>
+  <script src="js/Default_headerz_001.js"></script>
+
+</body>
+
+</html>

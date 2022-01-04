@@ -5,12 +5,15 @@ from pint import measurement
 from django.urls import reverse
 from .validators import validate_unit_of_measure
 from .utils import number_str_to_float
+
+import pathlib
+import uuid
+
 # Create your models here.
 
 
 class Recipe(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=220)
     description = models.TextField(blank=True, null=True)
     directions = models.TextField(blank=True, null=True)
@@ -31,14 +34,13 @@ class Recipe(models.Model):
         return self.recipeingredient_set.all()
 
 
-class RecipeIngredient (models.Model):
+class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     name = models.CharField(max_length=220)
     description = models.TextField(blank=True, null=True)
     quanity = models.CharField(max_length=50)
     quantity_as_flaot = models.FloatField(blank=True, null=True)
-    unit = models.CharField(max_length=50, validators=[
-                            validate_unit_of_measure])
+    unit = models.CharField(max_length=50, validators=[validate_unit_of_measure])
     directions = models.TextField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -48,17 +50,14 @@ class RecipeIngredient (models.Model):
         return self.recipe.get_absolute_url()
 
     def get_hx_edit_url(self):
-        kwargs = {
-            "parent_id": self.recipe.id,
-            "id": self.id
-        }
+        kwargs = {"parent_id": self.recipe.id, "id": self.id}
         return reverse("recipes:hx-ingredient-detail", kwargs=kwargs)
 
     def covert_to_system(self, system="mks"):
         if self.quantity_as_flaot is None:
             return None
         ureg = pint.UnitRegistry(system=system)
-        measurement = self.quantity_as_flaot*ureg[self.unit]
+        measurement = self.quantity_as_flaot * ureg[self.unit]
         # print(measurement)
         return measurement  # .to_base_units()
 
@@ -86,5 +85,34 @@ class RecipeIngredient (models.Model):
             self.quantity_as_flaot = None
         super().save(*args, **kwargs)
 
+
+class test(models.Model):
+    id = models.IntegerField(primary_key=True)
+
+    test = models.TextField(blank=True, null=True)
+
+
 # class RecipeImage():
 #     recipe=models.ForeignKey(Recipe)
+
+
+def shop_image(instance, filename):
+    fpath = pathlib.Path(filename)
+    new_fname = str(uuid.uuid1())  # uuid + timestamps
+    return f"{new_fname}{fpath.suffix}"
+
+
+class ShopItems(models.Model):
+    title = models.CharField(max_length=70, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to=shop_image)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    discount = models.DecimalField(
+        max_digits=2, decimal_places=0, blank=True, null=True
+    )
+
+    @property
+    def auto_cal(self):
+        a = self.price * (1 - (self.discount / 100))
+        x = "%.2f" % a
+        return x

@@ -12,11 +12,12 @@ from django.template.loader import render_to_string
 
 def home_view(request, id=None):
     """
-    take in request(django send request)    
+    take in request(django send request)
     return html as response(we pick to return the response)
     """
+
     name = "mohamed"
-    num = random.randint(1, 40)
+    num = random.randint(1, 1)
     # print(kwarags, args)
     # get data from db
     art_obj = Articles.objects.get(id=num)
@@ -26,8 +27,8 @@ def home_view(request, id=None):
         "object_list": articale_queryset,
         "title": art_obj.title,
         "id": art_obj.id,
-        "content": art_obj.content
-
+        "content": art_obj.content,
+        "test": 8000,
     }
 
     # django templates

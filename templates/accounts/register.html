@@ -1,20 +1,156 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>HostCloud - Responsive HTML5 Template</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}'>
+    <!-- Site CSS -->
+    <link rel="stylesheet" href='{% static "style_s.css" %}'>
+    <!-- Colors CSS -->
+    <link rel="stylesheet" href='{% static "css\colors.css" %}'>
+
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href='{% static "css\versions.css" %}'>
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href='{% static "css\responsive.css" %}'>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href='{% static "css\custom.css" %}'>
+
+    <!-- Modernizer for Portfolio -->
+    <script src='{% static "js\modernizer.js" %}'></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="host_version">
 
 
-{% block content %}
 
-{% if not request.user.is_authenticated %}
 
-<div style="margin-top: 30px;">
 
-    <form method="POST">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">register</button>
-    </form>
-    <p>Alredy have account ? <a href="/login">Login</a></p>
-</div>
-{% else %}
-<p> you're already logged in and can not rgister would you like to <a href="/logout/">logout</a> ? </p>
-{% endif %}
 
-{% endblock content %}
+
+
+
+    <div class="container" id="container_loginForm">
+
+        <div class="section-title  sectionz_formz text-left">
+            <h3>Create an Account</h3>
+            <p class="lead">Please fill the information to create an account.</p>
+        </div><!-- end title -->
+        <!-- My Profile-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact_form">
+                    <div id="message"></div>
+
+
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit" class="btn_login_form ">register</button>
+
+                    </form>
+
+                    {% comment %}
+
+
+
+                    <form id="contactform" class="row" action="contact.php" name="contactform" method="POST">
+                        {% csrf_token %}
+
+                        <fieldset class="row-fluid">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <input type="text" name="user_name" id="txt_pnumber_reg" class="form-control"
+                                    placeholder="User Name">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <input type="text" name="first_name" id="txt_firstname_reg" class="form-control"
+                                    placeholder="First Name" onclick="return first_name_onclick()">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <input type="text" name="last_name" id="txt_lastname_reg" class="form-control"
+                                    placeholder="Last Name">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <input type="text" name="email" id="txt_email_reg" class="form-control"
+                                    placeholder="Email" onclick="return first_name_onclick()">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <input type="password" name="last_name" id="txt_password_reg" class="form-control"
+                                    placeholder="password">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                <button type="submit" value="SEND" id="submit" class="btn_login_form ">Create an
+                                    account</button>
+                            </div>
+
+                        </fieldset>
+
+                    </form>
+                    {% endcomment %}
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+        <!-- End Profile-->
+    </div><!-- end container -->
+
+
+
+
+
+
+
+
+
+
+
+    <a href="#" id="scroll-to-top" class="up global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCKjLTXdq6Db3Xit_pW_GK4EXuPRtnod4o"></script>
+    <!-- Mapsed JavaScript -->
+    <script src="js/mapsed.js"></script>
+    <script src="js/01-custom-places-example.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
+    <script src="js/Default_headerz_001.js"></script>
+
+</body>
+
+</html>
