@@ -22,64 +22,71 @@
 
 </ul>
 
-<canvas id="myChart" width="50" height="50"></canvas>
+{% load static %}
+
+<a href="https://eshopping.nbe.com.eg/payments/{MerchantShortName}?in_pay_token={authKey}">Proceed to payment</a>
+
+
+
+<form class="pay-form-location" id="pay-form-location" method="POST">{% csrf_token %}
+    <input type="text">
+
+    <input class="AuthKey" id="AuthKey" type="text" value="test_test">
+
+    <button>pay</button>
+</form>
+
+
+<script src="https://eshopping.nbe.com.eg/webapi/SMEOnline/api.js?v=2" type="text/javascript"></script>
+<script src='{% static "index.js" %}'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<canvas class="myChart" id="myChart" width="50" height="50"></canvas>
+
+
+
 <script>
+    const data = {
+        labels: [
+            'Red',
+            'Blue',
+            'Yellow'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    };
 
     const ctx = document.getElementById('myChart').getContext('2d');
     const myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+        type: 'doughnut',
+        data: data
+
+    })
+
+
+
+
+
 </script>
 
+
 {% endblock content %}
-
-
-
-
-
-
-
-
-
-
-{% comment %}
-old ways to get the
-<!--<li><a href='/articles/{{ x.slug }}/'> {{x.title}} - {{x.content}} old</a></li>-->
-
-<!--<li><a href='{% url "article-create"%}'> {{x.title}} - {{x.content}} test create </a></li>-->
-
-<!--<li><a href='{% url "article-detail" slug=x.slug %}'> {{x.title}} - {{x.content}} test slug</a></li>-->
-
-{% endcomment %}

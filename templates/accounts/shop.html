@@ -37,7 +37,7 @@
   <link rel="stylesheet" href='{% static "css\custom.css" %}'>
 
   <!-- Modernizer for Portfolio -->
-  <script src='{% static "js\modernizer.js" %}'></script>
+  <!-- <script src='{% static "js\modernizer.js" %}'></script> -->
 
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -188,11 +188,16 @@
   <a href="#" id="scroll-to-top" class="up global-radius"><i class="fa fa-angle-up"></i></a>
 
   <!-- ALL JS FILES -->
-  <script src="js/all.js"></script>
+
+  <script src='{% static "js/all.js" %}'></script>
   <!-- ALL PLUGINS -->
-  <script src="js/custom.js"></script>
-  <script src="js/Default_shopz_001.js"></script>
-  <script src="js/Default_headerz_001.js"></script>
+
+
+  <script src='{% static "js\custom.js" %}'></script>
+
+  <script src='{% static "js/Default_shopz_001.js" %}'></script>
+
+  <script src='{% static "js/Default_headerz_001.js" %}'></script>
 
 </body>
 

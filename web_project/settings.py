@@ -35,7 +35,6 @@ LOGIN_URL = "/login/"
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,18 +44,7 @@ INSTALLED_APPS = [
     "django_htmx",
     "articles",
     "recipes",
-=======
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_htmx',
-    'articles',
-    'recipes',
-    'search',
->>>>>>> b0bbb36fcae6116b6342c8dc43366aa93e54d018
+    "search",
 ]
 
 MIDDLEWARE = [

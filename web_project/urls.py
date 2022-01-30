@@ -18,12 +18,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import home_view
-<<<<<<< HEAD
 from accounts.views import login_view, logout_view, register_view, shop_view
 from articles.views import article_search_view, article_create_view, article_detail_view
-=======
-from accounts.views import (login_view, logout_view, register_view)
->>>>>>> b0bbb36fcae6116b6342c8dc43366aa93e54d018
+
+# from accounts.views import (login_view, logout_view, register_view)
 
 
 from search.views import search_view
@@ -31,11 +29,9 @@ from search.views import search_view
 urlpatterns = [
     path("", home_view),  # index/home/root
     path("pantry/recipes/", include("recipes.urls")),
+    path("pay/", include("payment.urls")),
     path("articles/", include("articles.urls")),
-<<<<<<< HEAD
-=======
-    path("search/",search_view,name='search'),
->>>>>>> b0bbb36fcae6116b6342c8dc43366aa93e54d018
+    path("search/", search_view, name="search"),
     path("login/", login_view),
     # path("articles/", article_search_view),
     # # path("articles/create/", article_create_view),
